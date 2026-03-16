@@ -6,11 +6,20 @@ import animalRoutes from "./routes/animal.routes";
 import healthRoutes from "./routes/health.routes";
 import delayRoutes from "./routes/delay.routes";
 import type { Context } from "hono";
+import { rateLimiter } from "hono-rate-limiter";
 
 const app = new Hono();
 
+app.use(
+    rateLimiter({
+        windowMs: 10 * 60 * 1000, // 10 minutes
+        limit: 100, // Limit each client to 100 requests per window
+        keyGenerator: (c) => c.req.header("x-forwarded-for") ?? "", // Use IP address as key
+    }),
+);
+
 app.get("/", (c) => {
-    return c.json({ ok: true, message: "Welcome to the Fake API", version: "1.0.0" });
+    return c.json({ message: "Welcome to the Fake API", version: "1.0.0" });
 });
 
 app.route("/health", healthRoutes);
