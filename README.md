@@ -31,15 +31,15 @@ List endpoints generally return:
 
 ```json
 {
-  "data": [],
-  "pagination": {
-    "page": 1,
-    "limit": 10,
-    "totalItems": 0,
-    "totalPages": 0,
-    "hasNextPage": false,
-    "hasPreviousPage": false
-  }
+    "data": [],
+    "pagination": {
+        "page": 1,
+        "limit": 10,
+        "totalItems": 0,
+        "totalPages": 0,
+        "hasNextPage": false,
+        "hasPreviousPage": false
+    }
 }
 ```
 
@@ -56,7 +56,7 @@ Validation and business-rule failures return an `error` field:
 
 ```json
 {
-  "error": "Message here"
+    "error": "Message here"
 }
 ```
 
@@ -121,9 +121,9 @@ Request body:
 
 ```json
 {
-  "name": "John Doe",
-  "username": "johndoe",
-  "email": "john@example.com"
+    "name": "John Doe",
+    "username": "johndoe",
+    "email": "john@example.com"
 }
 ```
 
@@ -142,9 +142,9 @@ Request body:
 
 ```json
 {
-  "name": "John Doe Updated",
-  "username": "johndoeupdated",
-  "email": "john.updated@example.com"
+    "name": "John Doe Updated",
+    "username": "johndoeupdated",
+    "email": "john.updated@example.com"
 }
 ```
 
@@ -180,9 +180,9 @@ Request body:
 
 ```json
 {
-  "title": "New post",
-  "description": "This is a post created for a specific user.",
-  "tags": ["api", "demo"]
+    "title": "New post",
+    "description": "This is a post created for a specific user.",
+    "tags": ["api", "demo"]
 }
 ```
 
@@ -205,7 +205,7 @@ Request body:
 
 ```json
 {
-  "text": "This post is useful."
+    "text": "This post is useful."
 }
 ```
 
@@ -257,9 +257,9 @@ Response:
 
 ```json
 {
-  "query": "tech",
-  "total": 2,
-  "data": []
+    "query": "tech",
+    "total": 2,
+    "data": []
 }
 ```
 
@@ -275,9 +275,9 @@ Request body:
 
 ```json
 {
-  "title": "Updated title",
-  "description": "Updated description",
-  "tags": ["updated", "api"]
+    "title": "Updated title",
+    "description": "Updated description",
+    "tags": ["updated", "api"]
 }
 ```
 
@@ -390,7 +390,7 @@ Example response:
 
 ```json
 {
-  "message": "Response delayed by 2000ms"
+    "message": "Response delayed by 2000ms"
 }
 ```
 
