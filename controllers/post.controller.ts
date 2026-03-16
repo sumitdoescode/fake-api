@@ -132,10 +132,11 @@ export const updatePost = async (c: Context) => {
             return c.json({ error: "You cannot update seed posts" }, 400);
         }
 
-        const post = posts.find((post) => post.id === id);
-        if (!post) {
+        const postIndex = posts.findIndex((post) => post.id === id);
+        if (postIndex === -1) {
             return c.json({ error: "Post not found" }, 404);
         }
+        const post = posts[postIndex];
         const body = await c.req.json();
         const validation = updatePostSchema.safeParse(body);
         if (!validation.success) {
@@ -145,7 +146,7 @@ export const updatePost = async (c: Context) => {
             ...post,
             ...validation.data,
         };
-        posts[id - 1] = updatedPost;
+        posts[postIndex] = updatedPost;
         return c.json({ message: "Post updated", post: updatedPost });
     } catch (error) {
         return c.json({ error: error instanceof Error ? error.message : "Internal server error" }, 500);
@@ -164,11 +165,12 @@ export const deletePost = async (c: Context) => {
             return c.json({ error: "You cannot delete seed posts" }, 400);
         }
 
-        const post = posts.find((post) => post.id === id);
-        if (!post) {
+        const postIndex = posts.findIndex((post) => post.id === id);
+        if (postIndex === -1) {
             return c.json({ error: "Post not found" }, 404);
         }
-        posts.splice(id - 1, 1);
+        const post = posts[postIndex];
+        posts.splice(postIndex, 1);
         return c.json({ message: "Post deleted", post });
     } catch (error) {
         return c.json({ error: error instanceof Error ? error.message : "Internal server error" }, 500);

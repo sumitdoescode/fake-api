@@ -72,14 +72,14 @@ Example:
 curl https://your-project.your-subdomain.workers.dev/
 ```
 
-### `GET /api/health`
+### `GET /health`
 
 Simple health check endpoint.
 
 Example:
 
 ```bash
-curl https://your-project.your-subdomain.workers.dev/api/health
+curl https://your-project.your-subdomain.workers.dev/health
 ```
 
 ## Users
@@ -87,10 +87,10 @@ curl https://your-project.your-subdomain.workers.dev/api/health
 Base path:
 
 ```txt
-/api/users
+/users
 ```
 
-### `GET /api/users`
+### `GET /users`
 
 Get paginated users.
 
@@ -102,18 +102,18 @@ Query params:
 Example:
 
 ```bash
-curl "https://your-project.your-subdomain.workers.dev/api/users?page=1&limit=10"
+curl "https://your-project.your-subdomain.workers.dev/users?page=1&limit=10"
 ```
 
-### `GET /api/users/random`
+### `GET /users/random`
 
 Get one random user.
 
-### `GET /api/users/:id`
+### `GET /users/:id`
 
 Get a user by ID.
 
-### `POST /api/users`
+### `POST /users`
 
 Create a new user.
 
@@ -134,7 +134,7 @@ Notes:
 - `email` must be valid
 - duplicate `username` and `email` are rejected
 
-### `PUT /api/users/:id`
+### `PUT /users/:id`
 
 Update a user.
 
@@ -152,7 +152,7 @@ Notes:
 
 - users with IDs `<= 100` cannot be updated
 
-### `DELETE /api/users/:id`
+### `DELETE /users/:id`
 
 Delete a user.
 
@@ -162,17 +162,17 @@ Notes:
 
 ## User-Nested Resources
 
-### `GET /api/users/:id/posts`
+### `GET /users/:id/posts`
 
 Get all posts created by a specific user.
 
 Example:
 
 ```bash
-curl https://your-project.your-subdomain.workers.dev/api/users/1/posts
+curl https://your-project.your-subdomain.workers.dev/users/1/posts
 ```
 
-### `POST /api/users/:id/posts`
+### `POST /users/:id/posts`
 
 Create a post for a specific user.
 
@@ -193,11 +193,11 @@ Notes:
 - `tags` is optional
 - the `userId` comes from the URL, not the body
 
-### `GET /api/users/:id/comments`
+### `GET /users/:id/comments`
 
 Get all comments created by a specific user.
 
-### `POST /api/users/:userId/posts/:postId/comments`
+### `POST /users/:userId/posts/:postId/comments`
 
 Create a comment authored by a specific user on a specific post.
 
@@ -220,10 +220,10 @@ Notes:
 Base path:
 
 ```txt
-/api/posts
+/posts
 ```
 
-### `GET /api/posts`
+### `GET /posts`
 
 Get paginated posts.
 
@@ -232,11 +232,11 @@ Query params:
 - `page` default: `1`
 - `limit` default: `10`
 
-### `GET /api/posts/random`
+### `GET /posts/random`
 
 Get one random post.
 
-### `GET /api/posts/search`
+### `GET /posts/search`
 
 Search posts by `title`, `description`, or `tags`.
 
@@ -250,7 +250,7 @@ At least one of them must be provided.
 Example:
 
 ```bash
-curl "https://your-project.your-subdomain.workers.dev/api/posts/search?q=tech"
+curl "https://your-project.your-subdomain.workers.dev/posts/search?q=tech"
 ```
 
 Response:
@@ -263,11 +263,11 @@ Response:
 }
 ```
 
-### `GET /api/posts/:id`
+### `GET /posts/:id`
 
 Get a post by ID.
 
-### `PUT /api/posts/:id`
+### `PUT /posts/:id`
 
 Update a post.
 
@@ -286,7 +286,7 @@ Notes:
 - all fields are optional
 - posts with IDs `<= 100` cannot be updated
 
-### `DELETE /api/posts/:id`
+### `DELETE /posts/:id`
 
 Delete a post.
 
@@ -296,14 +296,14 @@ Notes:
 
 ## Post-Nested Resources
 
-### `GET /api/posts/:id/comments`
+### `GET /posts/:id/comments`
 
 Get all comments for a specific post.
 
 Example:
 
 ```bash
-curl https://your-project.your-subdomain.workers.dev/api/posts/1/comments
+curl https://your-project.your-subdomain.workers.dev/posts/1/comments
 ```
 
 ## Comments
@@ -311,10 +311,10 @@ curl https://your-project.your-subdomain.workers.dev/api/posts/1/comments
 Base path:
 
 ```txt
-/api/comments
+/comments
 ```
 
-### `GET /api/comments`
+### `GET /comments`
 
 Get paginated comments.
 
@@ -323,15 +323,15 @@ Query params:
 - `page` default: `1`
 - `limit` default: `10`
 
-### `GET /api/comments/random`
+### `GET /comments/random`
 
 Get one random comment.
 
-### `GET /api/comments/:id`
+### `GET /comments/:id`
 
 Get a comment by ID.
 
-### `DELETE /api/comments/:id`
+### `DELETE /comments/:id`
 
 Delete a comment.
 
@@ -344,10 +344,10 @@ Notes:
 Base path:
 
 ```txt
-/api/animals
+/animals
 ```
 
-### `GET /api/animals`
+### `GET /animals`
 
 Get paginated animals.
 
@@ -356,11 +356,11 @@ Query params:
 - `page` default: `1`
 - `limit` default: `10`
 
-### `GET /api/animals/random`
+### `GET /animals/random`
 
 Get one random animal.
 
-### `GET /api/animals/:id`
+### `GET /animals/:id`
 
 Get an animal by ID.
 
@@ -369,21 +369,21 @@ Get an animal by ID.
 Base path:
 
 ```txt
-/api/delay
+/delay
 ```
 
-### `GET /api/delay`
+### `GET /delay`
 
 Responds after the default delay of `1000ms`.
 
-### `GET /api/delay/:ms`
+### `GET /delay/:ms`
 
 Responds after the specified delay in milliseconds.
 
 Example:
 
 ```bash
-curl https://your-project.your-subdomain.workers.dev/api/delay/2000
+curl https://your-project.your-subdomain.workers.dev/delay/2000
 ```
 
 Example response:
@@ -399,7 +399,7 @@ Example response:
 ### Create a user
 
 ```bash
-curl -X POST https://your-project.your-subdomain.workers.dev/api/users \
+curl -X POST https://your-project.your-subdomain.workers.dev/users \
   -H "Content-Type: application/json" \
   -d "{\"name\":\"Jane Doe\",\"username\":\"janedoe\",\"email\":\"jane@example.com\"}"
 ```
@@ -407,7 +407,7 @@ curl -X POST https://your-project.your-subdomain.workers.dev/api/users \
 ### Create a post for a user
 
 ```bash
-curl -X POST https://your-project.your-subdomain.workers.dev/api/users/101/posts \
+curl -X POST https://your-project.your-subdomain.workers.dev/users/101/posts \
   -H "Content-Type: application/json" \
   -d "{\"title\":\"Hello\",\"description\":\"Post body\",\"tags\":[\"demo\",\"api\"]}"
 ```
@@ -415,7 +415,7 @@ curl -X POST https://your-project.your-subdomain.workers.dev/api/users/101/posts
 ### Create a comment for a user on a post
 
 ```bash
-curl -X POST https://your-project.your-subdomain.workers.dev/api/users/101/posts/1/comments \
+curl -X POST https://your-project.your-subdomain.workers.dev/users/101/posts/1/comments \
   -H "Content-Type: application/json" \
   -d "{\"text\":\"Nice post\"}"
 ```
@@ -423,7 +423,7 @@ curl -X POST https://your-project.your-subdomain.workers.dev/api/users/101/posts
 ### Search posts
 
 ```bash
-curl "https://your-project.your-subdomain.workers.dev/api/posts/search?q=api"
+curl "https://your-project.your-subdomain.workers.dev/posts/search?q=api"
 ```
 
 ## Deployment
