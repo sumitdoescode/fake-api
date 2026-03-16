@@ -5,6 +5,7 @@ import commentRoutes from "./routes/comments.routes";
 import animalRoutes from "./routes/animal.routes";
 import healthRoutes from "./routes/health.routes";
 import delayRoutes from "./routes/delay.routes";
+import type { Context } from "hono";
 
 const app = new Hono();
 
@@ -12,11 +13,19 @@ app.get("/", (c) => {
     return c.json({ ok: true, message: "Welcome to the Fake API", version: "1.0.0" });
 });
 
-app.route("/api/health", healthRoutes);
-app.route("/api/users", userRoutes);
-app.route("/api/posts", postRoutes);
-app.route("/api/comments", commentRoutes);
-app.route("/api/animals", animalRoutes);
-app.route("/api/delay", delayRoutes);
+app.route("/health", healthRoutes);
+app.route("/users", userRoutes);
+app.route("/posts", postRoutes);
+app.route("/comments", commentRoutes);
+app.route("/animals", animalRoutes);
+app.route("/delay", delayRoutes);
+
+app.onError((e: any, c: Context) => {
+    return c.json({ error: e.message }, 500);
+});
+
+app.notFound((c: Context) => {
+    return c.json({ error: "Not Found" }, 404);
+});
 
 export default app;
