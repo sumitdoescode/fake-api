@@ -1,0 +1,401 @@
+[
+    {
+        "id": 1,
+        "name": "Lion",
+        "type": "reptile",
+        "diet": "omnivore",
+        "continent": "North America",
+        "lifespan": 49
+    },
+    {
+        "id": 2,
+        "name": "Tiger",
+        "type": "bird",
+        "diet": "omnivore",
+        "continent": "Australia",
+        "lifespan": 33
+    },
+    {
+        "id": 3,
+        "name": "Elephant",
+        "type": "reptile",
+        "diet": "omnivore",
+        "continent": "Africa",
+        "lifespan": 24
+    },
+    {
+        "id": 4,
+        "name": "Giraffe",
+        "type": "fish",
+        "diet": "omnivore",
+        "continent": "Africa",
+        "lifespan": 33
+    },
+    {
+        "id": 5,
+        "name": "Zebra",
+        "type": "mammal",
+        "diet": "herbivore",
+        "continent": "Europe",
+        "lifespan": 78
+    },
+    {
+        "id": 6,
+        "name": "Panda",
+        "type": "reptile",
+        "diet": "herbivore",
+        "continent": "Asia",
+        "lifespan": 32
+    },
+    {
+        "id": 7,
+        "name": "Kangaroo",
+        "type": "mammal",
+        "diet": "carnivore",
+        "continent": "Europe",
+        "lifespan": 71
+    },
+    {
+        "id": 8,
+        "name": "Koala",
+        "type": "bird",
+        "diet": "herbivore",
+        "continent": "Africa",
+        "lifespan": 66
+    },
+    {
+        "id": 9,
+        "name": "Wolf",
+        "type": "reptile",
+        "diet": "omnivore",
+        "continent": "Asia",
+        "lifespan": 6
+    },
+    {
+        "id": 10,
+        "name": "Fox",
+        "type": "bird",
+        "diet": "carnivore",
+        "continent": "Africa",
+        "lifespan": 34
+    },
+    {
+        "id": 11,
+        "name": "Bear",
+        "type": "amphibian",
+        "diet": "carnivore",
+        "continent": "Australia",
+        "lifespan": 75
+    },
+    {
+        "id": 12,
+        "name": "Leopard",
+        "type": "reptile",
+        "diet": "omnivore",
+        "continent": "Europe",
+        "lifespan": 29
+    },
+    {
+        "id": 13,
+        "name": "Cheetah",
+        "type": "reptile",
+        "diet": "herbivore",
+        "continent": "North America",
+        "lifespan": 25
+    },
+    {
+        "id": 14,
+        "name": "Hyena",
+        "type": "bird",
+        "diet": "carnivore",
+        "continent": "North America",
+        "lifespan": 43
+    },
+    {
+        "id": 15,
+        "name": "Raccoon",
+        "type": "reptile",
+        "diet": "carnivore",
+        "continent": "Europe",
+        "lifespan": 58
+    },
+    {
+        "id": 16,
+        "name": "Otter",
+        "type": "mammal",
+        "diet": "omnivore",
+        "continent": "Australia",
+        "lifespan": 50
+    },
+    {
+        "id": 17,
+        "name": "Moose",
+        "type": "amphibian",
+        "diet": "omnivore",
+        "continent": "Europe",
+        "lifespan": 29
+    },
+    {
+        "id": 18,
+        "name": "Deer",
+        "type": "mammal",
+        "diet": "omnivore",
+        "continent": "Australia",
+        "lifespan": 79
+    },
+    {
+        "id": 19,
+        "name": "Bison",
+        "type": "bird",
+        "diet": "omnivore",
+        "continent": "Australia",
+        "lifespan": 75
+    },
+    {
+        "id": 20,
+        "name": "Buffalo",
+        "type": "fish",
+        "diet": "herbivore",
+        "continent": "Asia",
+        "lifespan": 39
+    },
+    {
+        "id": 21,
+        "name": "Eagle",
+        "type": "amphibian",
+        "diet": "carnivore",
+        "continent": "Africa",
+        "lifespan": 27
+    },
+    {
+        "id": 22,
+        "name": "Falcon",
+        "type": "reptile",
+        "diet": "carnivore",
+        "continent": "Europe",
+        "lifespan": 77
+    },
+    {
+        "id": 23,
+        "name": "Owl",
+        "type": "fish",
+        "diet": "carnivore",
+        "continent": "Africa",
+        "lifespan": 67
+    },
+    {
+        "id": 24,
+        "name": "Parrot",
+        "type": "fish",
+        "diet": "omnivore",
+        "continent": "Europe",
+        "lifespan": 8
+    },
+    {
+        "id": 25,
+        "name": "Penguin",
+        "type": "reptile",
+        "diet": "omnivore",
+        "continent": "Australia",
+        "lifespan": 76
+    },
+    {
+        "id": 26,
+        "name": "Flamingo",
+        "type": "reptile",
+        "diet": "herbivore",
+        "continent": "North America",
+        "lifespan": 51
+    },
+    {
+        "id": 27,
+        "name": "Pelican",
+        "type": "bird",
+        "diet": "omnivore",
+        "continent": "Africa",
+        "lifespan": 56
+    },
+    {
+        "id": 28,
+        "name": "Crow",
+        "type": "amphibian",
+        "diet": "herbivore",
+        "continent": "North America",
+        "lifespan": 39
+    },
+    {
+        "id": 29,
+        "name": "Swan",
+        "type": "bird",
+        "diet": "carnivore",
+        "continent": "Australia",
+        "lifespan": 28
+    },
+    {
+        "id": 30,
+        "name": "Duck",
+        "type": "reptile",
+        "diet": "omnivore",
+        "continent": "Asia",
+        "lifespan": 51
+    },
+    {
+        "id": 31,
+        "name": "Shark",
+        "type": "mammal",
+        "diet": "omnivore",
+        "continent": "Africa",
+        "lifespan": 64
+    },
+    {
+        "id": 32,
+        "name": "Dolphin",
+        "type": "fish",
+        "diet": "herbivore",
+        "continent": "North America",
+        "lifespan": 70
+    },
+    {
+        "id": 33,
+        "name": "Whale",
+        "type": "fish",
+        "diet": "carnivore",
+        "continent": "Asia",
+        "lifespan": 32
+    },
+    {
+        "id": 34,
+        "name": "Octopus",
+        "type": "amphibian",
+        "diet": "omnivore",
+        "continent": "Australia",
+        "lifespan": 20
+    },
+    {
+        "id": 35,
+        "name": "Seal",
+        "type": "mammal",
+        "diet": "omnivore",
+        "continent": "South America",
+        "lifespan": 42
+    },
+    {
+        "id": 36,
+        "name": "Sea Lion",
+        "type": "fish",
+        "diet": "herbivore",
+        "continent": "Australia",
+        "lifespan": 54
+    },
+    {
+        "id": 37,
+        "name": "Turtle",
+        "type": "reptile",
+        "diet": "omnivore",
+        "continent": "Asia",
+        "lifespan": 59
+    },
+    {
+        "id": 38,
+        "name": "Crocodile",
+        "type": "fish",
+        "diet": "herbivore",
+        "continent": "Asia",
+        "lifespan": 12
+    },
+    {
+        "id": 39,
+        "name": "Alligator",
+        "type": "reptile",
+        "diet": "herbivore",
+        "continent": "North America",
+        "lifespan": 31
+    },
+    {
+        "id": 40,
+        "name": "Snake",
+        "type": "fish",
+        "diet": "herbivore",
+        "continent": "Europe",
+        "lifespan": 38
+    },
+    {
+        "id": 41,
+        "name": "Lizard",
+        "type": "reptile",
+        "diet": "omnivore",
+        "continent": "North America",
+        "lifespan": 53
+    },
+    {
+        "id": 42,
+        "name": "Chameleon",
+        "type": "amphibian",
+        "diet": "carnivore",
+        "continent": "Europe",
+        "lifespan": 12
+    },
+    {
+        "id": 43,
+        "name": "Frog",
+        "type": "amphibian",
+        "diet": "omnivore",
+        "continent": "North America",
+        "lifespan": 61
+    },
+    {
+        "id": 44,
+        "name": "Toad",
+        "type": "reptile",
+        "diet": "omnivore",
+        "continent": "South America",
+        "lifespan": 61
+    },
+    {
+        "id": 45,
+        "name": "Salamander",
+        "type": "fish",
+        "diet": "omnivore",
+        "continent": "Europe",
+        "lifespan": 53
+    },
+    {
+        "id": 46,
+        "name": "Bat",
+        "type": "mammal",
+        "diet": "carnivore",
+        "continent": "North America",
+        "lifespan": 24
+    },
+    {
+        "id": 47,
+        "name": "Armadillo",
+        "type": "mammal",
+        "diet": "omnivore",
+        "continent": "North America",
+        "lifespan": 40
+    },
+    {
+        "id": 48,
+        "name": "Sloth",
+        "type": "mammal",
+        "diet": "herbivore",
+        "continent": "Europe",
+        "lifespan": 36
+    },
+    {
+        "id": 49,
+        "name": "Meerkat",
+        "type": "reptile",
+        "diet": "herbivore",
+        "continent": "Europe",
+        "lifespan": 53
+    },
+    {
+        "id": 50,
+        "type": "amphibian",
+        "diet": "carnivore",
+        "continent": "Asia",
+        "lifespan": 12
+    }
+]
