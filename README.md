@@ -2,6 +2,8 @@
 
 Simple fake REST API built with Hono, TypeScript, and Cloudflare Workers.
 
+It is intended for frontend practice, demos, and testing UI states without setting up a real backend. The API serves seeded JSON data and also supports basic create, update, and delete flows for selected resources.
+
 ## Base URL
 
 ```txt
@@ -16,6 +18,20 @@ https://api.sumitdoescode.me
 - Animals
 - Health check
 - Delay endpoint for testing loaders and skeleton states
+
+## Tech Stack
+
+- Hono
+- TypeScript
+- Cloudflare Workers
+- Zod for validation
+
+## How It Works
+
+- Seed data is loaded from local JSON files.
+- Most responses are JSON with standard REST-style status codes.
+- CORS is enabled for all origins, so it can be used directly from frontend apps.
+- This API is useful for prototyping, mock integrations, and UI testing.
 
 ## Important Notes
 
@@ -78,19 +94,6 @@ https://api.sumitdoescode.me
 ```bash
 curl https://api.sumitdoescode.me/health
 curl https://api.sumitdoescode.me/users
-curl "https://api.sumitdoescode.me/posts/search?q=api"
+curl https://api.sumitdoescode.me/posts/search?q=api
 curl https://api.sumitdoescode.me/delay/2000
-```
-
-## Local Development
-
-```bash
-npm install
-npm run dev
-```
-
-## Deploy
-
-```bash
-npm run deploy
 ```
