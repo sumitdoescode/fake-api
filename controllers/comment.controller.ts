@@ -129,9 +129,6 @@ export const deleteComment = async (c: Context) => {
         comments.splice(id - 1, 1);
         return c.json({ message: "Comment deleted", comment });
     } catch (error) {
-        if (error instanceof Error) {
-            return c.json({ error: error.message }, 500);
-        }
-        return c.json({ error: "Internal server error" }, 500);
+        return c.json({ error: error instanceof Error ? error.message : "Internal server error" }, 500);
     }
 };

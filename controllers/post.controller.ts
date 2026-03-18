@@ -81,19 +81,6 @@ export const getPostById = async (c: Context) => {
     }
 };
 
-export const getPostsByUserId = async (c: Context) => {
-    try {
-        const userId = Number(c.req.param("id"));
-        if (isNaN(userId)) {
-            return c.json({ error: "Invalid user ID" }, 400);
-        }
-        const userPosts = posts.filter((post) => post.userId === userId);
-        return c.json(userPosts);
-    } catch (error) {
-        return c.json({ error: error instanceof Error ? error.message : "Internal server error" }, 500);
-    }
-};
-
 export const createPostByUserId = async (c: Context) => {
     try {
         const userId = Number(c.req.param("id"));
@@ -115,6 +102,19 @@ export const createPostByUserId = async (c: Context) => {
         };
         posts.push(newPost);
         return c.json(newPost, 201);
+    } catch (error) {
+        return c.json({ error: error instanceof Error ? error.message : "Internal server error" }, 500);
+    }
+};
+
+export const getPostsByUserId = async (c: Context) => {
+    try {
+        const userId = Number(c.req.param("id"));
+        if (isNaN(userId)) {
+            return c.json({ error: "Invalid user ID" }, 400);
+        }
+        const userPosts = posts.filter((post) => post.userId === userId);
+        return c.json(userPosts);
     } catch (error) {
         return c.json({ error: error instanceof Error ? error.message : "Internal server error" }, 500);
     }

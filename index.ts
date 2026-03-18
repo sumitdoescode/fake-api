@@ -34,7 +34,7 @@ app.onError((e: any, c: Context) => {
 });
 
 app.notFound((c: Context) => {
-    return c.json({ error: "Not Found" }, 404);
+    return c.json({ error: "Route Not Found" }, 404);
 });
 
 export default app;

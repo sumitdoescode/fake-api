@@ -17,11 +17,11 @@ userRoutes.post("/:id/posts", createPostByUserId);
 // GET => /api/users/:id/posts
 userRoutes.get("/:id/posts", getPostsByUserId);
 
-// GET => /api/users/:id/comments
-userRoutes.get("/:id/comments", getCommentsByUserId);
-
 // POST => /api/users/:userId/posts/:postId/comments
 userRoutes.post("/:userId/posts/:postId/comments", createCommentByUserIdAndPostId);
+
+// GET => /api/users/:id/comments
+userRoutes.get("/:id/comments", getCommentsByUserId);
 
 // GET => /api/users/:id
 userRoutes.get("/:id", getUserById);

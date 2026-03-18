@@ -22,10 +22,7 @@ export const getAllAnimals = async (c: Context) => {
             },
         });
     } catch (error) {
-        if (error instanceof Error) {
-            return c.json({ error: error.message }, 500);
-        }
-        return c.json({ error: "Internal server error" }, 500);
+        return c.json({ error: error instanceof Error ? error.message : "Internal server error" }, 500);
     }
 };
 
@@ -35,10 +32,7 @@ export const getRandomAnimal = async (c: Context) => {
         const randomAnimal = animals[randomIndex];
         return c.json(randomAnimal);
     } catch (error) {
-        if (error instanceof Error) {
-            return c.json({ error: error.message }, 500);
-        }
-        return c.json({ error: "Internal server error" }, 500);
+        return c.json({ error: error instanceof Error ? error.message : "Internal server error" }, 500);
     }
 };
 
@@ -54,9 +48,6 @@ export const getAnimalById = async (c: Context) => {
         }
         return c.json(animal);
     } catch (error) {
-        if (error instanceof Error) {
-            return c.json({ error: error.message }, 500);
-        }
-        return c.json({ error: "Internal server error" }, 500);
+        return c.json({ error: error instanceof Error ? error.message : "Internal server error" }, 500);
     }
 };
