@@ -3,7 +3,15 @@ import usersData from "../data/users.json";
 import { createUserSchema, updateUserSchema } from "../schemas/User.schema";
 import { flattenError } from "zod";
 
-const users = [...(usersData as { id: number; name: string; username: string; email: string }[])];
+interface IUser {
+    id: number;
+    name: string;
+    username: string;
+    email: string;
+}
+
+const users = [...(usersData as IUser[])];
+const seedUserIds = new Set((usersData as IUser[]).map((user) => user.id));
 
 export const getAllUsers = async (c: Context) => {
     try {
@@ -34,7 +42,7 @@ export const getAllUsers = async (c: Context) => {
             },
         });
     } catch (error) {
-        // console.error("Error fetching all users:", error);
+        console.error("Error fetching all users:", error);
         return c.json({ error: error instanceof Error ? error.message : "Internal server error" }, 500);
     }
 };
@@ -45,7 +53,7 @@ export const getRandomUser = async (c: Context) => {
         const randomUser = users[randomIndex];
         return c.json(randomUser);
     } catch (error) {
-        // console.error("Error fetching random user:", error);
+        console.error("Error fetching random user:", error);
         return c.json({ error: error instanceof Error ? error.message : "Internal server error" }, 500);
     }
 };
@@ -54,7 +62,7 @@ export const getUserById = async (c: Context) => {
     try {
         const id = Number(c.req.param("id"));
 
-        if (!id) {
+        if (!id || isNaN(id)) {
             return c.json({ error: "Please provide user id" }, 400);
         }
 
@@ -66,7 +74,7 @@ export const getUserById = async (c: Context) => {
 
         return c.json(user);
     } catch (error) {
-        // console.error("Error fetching user by id:", error);
+        console.error("Error fetching user by id:", error);
         return c.json({ error: error instanceof Error ? error.message : "Internal server error" }, 500);
     }
 };
@@ -92,8 +100,10 @@ export const createUser = async (c: Context) => {
             return c.json({ error: "User with this email already exists" }, 400);
         }
 
+        const nextUserId = Math.max(...users.map((user) => user.id), 0) + 1;
+
         const newUser = {
-            id: users.length + 1,
+            id: nextUserId,
             name,
             username,
             email,
@@ -103,7 +113,7 @@ export const createUser = async (c: Context) => {
 
         return c.json({ message: "User created", data: newUser }, 201);
     } catch (error) {
-        // console.error("Error creating user:", error);
+        console.error("Error creating user:", error);
         return c.json({ error: error instanceof Error ? error.message : "Internal server error" }, 500);
     }
 };
@@ -112,12 +122,12 @@ export const updateUser = async (c: Context) => {
     try {
         const id = Number(c.req.param("id"));
 
-        if (!id) {
+        if (!id || isNaN(id)) {
             return c.json({ error: "Please provide user id" }, 400);
         }
 
         // you cannot update the original seed data
-        if (id <= 100) {
+        if (seedUserIds.has(id)) {
             return c.json({ error: "You cannot update the original seed data" }, 400);
         }
 
@@ -155,7 +165,7 @@ export const updateUser = async (c: Context) => {
 
         return c.json({ message: "User updated", data: users[userIndex] });
     } catch (error) {
-        // console.error("Error updating user:", error);
+        console.error("Error updating user:", error);
         return c.json({ error: error instanceof Error ? error.message : "Internal server error" }, 500);
     }
 };
@@ -164,12 +174,12 @@ export const deleteUser = async (c: Context) => {
     try {
         const id = Number(c.req.param("id"));
 
-        if (!id) {
+        if (!id || isNaN(id)) {
             return c.json({ error: "Please provide user id" }, 400);
         }
 
         // you cannot delete the original seed data
-        if (id <= 100) {
+        if (seedUserIds.has(id)) {
             return c.json({ error: "You cannot delete the original seed data" }, 400);
         }
 
@@ -184,7 +194,7 @@ export const deleteUser = async (c: Context) => {
 
         return c.json({ message: "User deleted", data: deletedUser });
     } catch (error) {
-        // console.error("Error deleting user:", error);
+        console.error("Error deleting user:", error);
         return c.json({ error: error instanceof Error ? error.message : "Internal server error" }, 500);
     }
 };

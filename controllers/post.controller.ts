@@ -3,7 +3,18 @@ import postsData from "../data/posts.json";
 import { createPostSchema, updatePostSchema } from "../schemas/Post.schema";
 import { flattenError } from "zod";
 
-const posts = [...(postsData as { userId: number; id: number; title: string; description: string; tags?: string[] }[])];
+interface IPost {
+    userId: number;
+    id: number;
+    title: string;
+    description: string;
+    tags?: string[];
+    createdAt: string;
+    updatedAt: string;
+}
+
+const posts = [...(postsData as IPost[])];
+const seedPostIds = new Set((postsData as IPost[]).map((post) => post.id));
 
 export const getAllPosts = async (c: Context) => {
     try {
@@ -92,9 +103,11 @@ export const createPostByUserId = async (c: Context) => {
         if (!validation.success) {
             return c.json({ error: flattenError(validation.error).fieldErrors }, 400);
         }
+        const nextPostId = Math.max(...posts.map((post) => post.id), 0) + 1;
+
         const newPost = {
             userId,
-            id: posts.length + 1,
+            id: nextPostId,
             ...validation.data,
             tags: validation.data.tags || [],
             createdAt: new Date().toISOString(),
@@ -128,7 +141,7 @@ export const updatePost = async (c: Context) => {
         }
 
         // you cannot update seed posts
-        if (id <= 100) {
+        if (seedPostIds.has(id)) {
             return c.json({ error: "You cannot update seed posts" }, 400);
         }
 
@@ -145,6 +158,7 @@ export const updatePost = async (c: Context) => {
         const updatedPost = {
             ...post,
             ...validation.data,
+            updatedAt: new Date().toISOString(),
         };
         posts[postIndex] = updatedPost;
         return c.json({ message: "Post updated", post: updatedPost });
@@ -161,7 +175,7 @@ export const deletePost = async (c: Context) => {
         }
 
         // you cannot delete seed posts
-        if (id <= 100) {
+        if (seedPostIds.has(id)) {
             return c.json({ error: "You cannot delete seed posts" }, 400);
         }
 

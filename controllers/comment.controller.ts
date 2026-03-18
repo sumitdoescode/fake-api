@@ -3,7 +3,16 @@ import commentsData from "../data/comments.json";
 import { createCommentSchema } from "../schemas/Comment.schema";
 import { flattenError } from "zod";
 
-const comments = [...(commentsData as { id: number; postId: number; userId: number; text: string; createdAt: string }[])];
+interface IComment {
+    id: number;
+    postId: number;
+    userId: number;
+    text: string;
+    createdAt: string;
+}
+
+const comments = [...(commentsData as IComment[])];
+const seedCommentIds = new Set((commentsData as IComment[]).map((comment) => comment.id));
 
 export const getAllComments = async (c: Context) => {
     try {
@@ -41,6 +50,8 @@ export const getRandomComment = async (c: Context) => {
 export const getCommentById = async (c: Context) => {
     try {
         const id = Number(c.req.param("id"));
+
+        // if id is not a number (NaN)
         if (isNaN(id)) {
             return c.json({ error: "Invalid comment ID" }, 400);
         }
@@ -96,8 +107,10 @@ export const createCommentByUserIdAndPostId = async (c: Context) => {
         if (!validation.success) {
             return c.json({ error: flattenError(validation.error).fieldErrors }, 400);
         }
+        const nextCommentId = Math.max(...comments.map((comment) => comment.id), 0) + 1;
+
         const newComment = {
-            id: comments.length + 1,
+            id: nextCommentId,
             postId,
             userId,
             ...validation.data,
@@ -118,16 +131,16 @@ export const deleteComment = async (c: Context) => {
         }
 
         // you cannot delete seed comments
-        if (id <= 100) {
+        if (seedCommentIds.has(id)) {
             return c.json({ error: "You cannot delete seed comments" }, 400);
         }
 
-        const comment = comments.find((comment) => comment.id === id);
-        if (!comment) {
+        const commentIndex = comments.findIndex((comment) => comment.id === id);
+        if (commentIndex === -1) {
             return c.json({ error: "Comment not found" }, 404);
         }
-        comments.splice(id - 1, 1);
-        return c.json({ message: "Comment deleted", comment });
+        const [deletedComment] = comments.splice(commentIndex, 1);
+        return c.json({ message: "Comment deleted", deletedComment });
     } catch (error) {
         return c.json({ error: error instanceof Error ? error.message : "Internal server error" }, 500);
     }
