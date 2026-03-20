@@ -9,6 +9,7 @@ import type { Context } from "hono";
 import { logger } from "hono/logger";
 import { cors } from "hono/cors";
 // import { rateLimiter } from "hono-rate-limiter";
+import { getConnInfo } from "hono/cloudflare-workers";
 
 const app = new Hono();
 
@@ -39,6 +40,13 @@ app.route("/posts", postRoutes);
 app.route("/comments", commentRoutes);
 app.route("/animals", animalRoutes);
 app.route("/delay", delayRoutes);
+app.get("/ip", (c) => {
+    // Get the IP address from the 'cf-connecting-ip' header
+    const info = getConnInfo(c);
+    const remoteAddress = info.remote.address;
+    console.log(`Client IP Address: ${remoteAddress}`);
+    return c.text(`Your IP is: ${remoteAddress}`);
+});
 
 app.onError((e: any, c: Context) => {
     return c.json({ error: e.message }, 500);
