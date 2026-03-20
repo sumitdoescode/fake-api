@@ -89,6 +89,10 @@ https://api.sumitdoescode.me
 - `GET /delay`
 - `GET /delay/:ms`
 
+### My IP
+
+- `GET /myip`
+
 ## Quick Examples
 
 ```bash
@@ -96,4 +100,5 @@ curl https://api.sumitdoescode.me/health
 curl https://api.sumitdoescode.me/users
 curl https://api.sumitdoescode.me/posts/search?q=api
 curl https://api.sumitdoescode.me/delay/2000
+curl https://api.sumitdoescode.me/myip
 ```
