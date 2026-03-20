@@ -5,34 +5,34 @@ import { createCommentByUserIdAndPostId, getCommentsByUserId } from "../controll
 
 const userRoutes = new Hono();
 
-// GET => /api/users
+// GET => /users
 userRoutes.get("/", getAllUsers);
 
-// GET => /api/users/random
+// GET => /users/random
 userRoutes.get("/random", getRandomUser);
 
-// POST => /api/users/:id/posts
+// POST => /users/:id/posts
 userRoutes.post("/:id/posts", createPostByUserId);
 
-// GET => /api/users/:id/posts
+// GET => /users/:id/posts
 userRoutes.get("/:id/posts", getPostsByUserId);
 
-// POST => /api/users/:userId/posts/:postId/comments
+// POST => /users/:userId/posts/:postId/comments
 userRoutes.post("/:userId/posts/:postId/comments", createCommentByUserIdAndPostId);
 
-// GET => /api/users/:id/comments
+// GET => /users/:id/comments
 userRoutes.get("/:id/comments", getCommentsByUserId);
 
-// GET => /api/users/:id
+// GET => /users/:id
 userRoutes.get("/:id", getUserById);
 
-// POST => /api/users
+// POST => /users
 userRoutes.post("/", createUser);
 
-// PUT => /api/users/:id
+// PUT => /users/:id
 userRoutes.put("/:id", updateUser);
 
-// DELETE => /api/users/:id
+// DELETE => /users/:id
 userRoutes.delete("/:id", deleteUser);
 
 export default userRoutes;

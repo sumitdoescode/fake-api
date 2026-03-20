@@ -4,25 +4,25 @@ import { getCommentsByPostId } from "../controllers/comment.controller";
 
 const postRoutes = new Hono();
 
-// GET => /api/posts
+// GET => /posts
 postRoutes.get("/", getAllPosts); // get all posts
 
-// GET => /api/posts/random
+// GET => /posts/random
 postRoutes.get("/random", getRandomPost); // get random post
 
-// GET => /api/posts/search?q=term
+// GET => /posts/search?q=term
 postRoutes.get("/search", searchPosts); // search posts
 
-// GET => /api/posts/:id/comments
+// GET => /posts/:id/comments
 postRoutes.get("/:id/comments", getCommentsByPostId);
 
-// GET => /api/posts/:id
+// GET => /posts/:id
 postRoutes.get("/:id", getPostById); // get post by id
 
-// PUT => /api/posts/:id
+// PUT => /posts/:id
 postRoutes.put("/:id", updatePost); // update post
 
-// DELETE => /api/posts/:id
+// DELETE => /posts/:id
 postRoutes.delete("/:id", deletePost); // delete post
 
 export default postRoutes;

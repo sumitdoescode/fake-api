@@ -3,13 +3,13 @@ import { getAllAnimals, getAnimalById, getRandomAnimal } from "../controllers/an
 
 const animalRoutes = new Hono();
 
-// GET => /api/animals
+// GET => /animals
 animalRoutes.get("/", getAllAnimals);
 
-// GET => /api/animals/random
+// GET => /animals/random
 animalRoutes.get("/random", getRandomAnimal);
 
-// GET => /api/animals/:id
+// GET => /animals/:id
 animalRoutes.get("/:id", getAnimalById);
 
 export default animalRoutes;

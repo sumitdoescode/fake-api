@@ -3,16 +3,16 @@ import { deleteComment, getAllComments, getCommentById, getRandomComment } from 
 
 const commentRoutes = new Hono();
 
-// GET => /api/comments
+// GET => /comments
 commentRoutes.get("/", getAllComments);
 
-// GET => /api/comments/random
+// GET => /comments/random
 commentRoutes.get("/random", getRandomComment);
 
-// GET => /api/comments/:id
+// GET => /comments/:id
 commentRoutes.get("/:id", getCommentById);
 
-// DELETE => /api/comments/:id
+// DELETE => /comments/:id
 commentRoutes.delete("/:id", deleteComment);
 
 export default commentRoutes;

@@ -3,7 +3,7 @@ import { getConnInfo } from "hono/cloudflare-workers";
 
 const myIpRoutes = new Hono();
 
-// GET => /api/v1/myip
+// GET => /myip
 myIpRoutes.get("/", (c) => {
     try {
         const info = getConnInfo(c);

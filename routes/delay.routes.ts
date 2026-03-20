@@ -3,10 +3,10 @@ import { delayResponse } from "../controllers/delay.controller";
 
 const delayRoutes = new Hono();
 
-// GET => /api/delay
+// GET => /delay
 delayRoutes.get("/", delayResponse);
 
-// GET => /api/delay/:ms
+// GET => /delay/:ms
 delayRoutes.get("/:ms", delayResponse);
 
 export default delayRoutes;
